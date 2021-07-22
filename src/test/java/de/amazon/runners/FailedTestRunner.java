@@ -9,7 +9,6 @@ import org.junit.runner.RunWith;
         plugin = {"html:target/failed-html-report"},
         features = "@target/rerun.txt",
         glue = "de/amazon/stepDefinitions"
-
 )
 public class FailedTestRunner {
 }

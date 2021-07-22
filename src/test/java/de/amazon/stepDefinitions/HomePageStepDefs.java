@@ -20,7 +20,6 @@ public class HomePageStepDefs {
         new HomePage().homePageAssertion();
     }
 
-
     @Then("All links on the HomePage must be valid")
     public void allLinksOnTheHomePageMustBeValid() {
          new HomePage().BrokenLinks();

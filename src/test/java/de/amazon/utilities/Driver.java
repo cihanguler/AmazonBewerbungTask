@@ -120,6 +120,7 @@ public class Driver {
                     caps = DesiredCapabilities.chrome();
                     caps.setCapability("platform", "Windows 10");
                     caps.setCapability("version", "90.0");
+                    caps.setCapability("name", ConfigurationReader.get("tester")+", "+ConfigurationReader.get("testName"));
 
                     try {
                         driverPool.set(new RemoteWebDriver(new URL(sauceURL), caps));

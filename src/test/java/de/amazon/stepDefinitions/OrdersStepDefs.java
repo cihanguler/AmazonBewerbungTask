@@ -7,7 +7,6 @@ import io.cucumber.java.en.When;
 
 public class OrdersStepDefs {
 
-
     @When("The user click on the orders button")
     public void theUserClickOnTheOrdersButton() {
         new OrderPage().navigateToOrder();
@@ -17,7 +16,6 @@ public class OrdersStepDefs {
     public void theUserShouldBeAbleToCancelTheOrder() {
         new OrderPage().orderCancellation();
     }
-
 
     @And("The user should see message {string} or {string}")
     public void theUserShouldSeeMessageOr(String arg0, String arg1) {

@@ -47,10 +47,10 @@ public class SearchPage extends BasePage {
     public WebElement getCheapestElement(String productName) {
 
         BrowserUtils.waitForPageToLoad(5);
-        WebElement cheapestElement = Driver.get().findElement(
+        WebElement firstElement = Driver.get().findElement(
                 By.xpath("((//div[@data-component-type=\"s-search-result\"][not(contains(@class,\"AdHolder\"))][contains(.//span,\""
                         + productName + "\")])[1]//a)[2]"));
-        return cheapestElement;
+        return firstElement;
 
     }
 

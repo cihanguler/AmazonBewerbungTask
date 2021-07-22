@@ -60,8 +60,6 @@ public class OrderPage extends BasePage {
     public List<WebElement> OrderCancelledMessage;
 
 
-
-
     public void navigateToOrder() {
         BrowserUtils.waitForPageToLoad(3);
         OrdersButton.click();
@@ -74,7 +72,6 @@ public class OrderPage extends BasePage {
             BrowserUtils.waitForPageToLoad(3);
             BrowserUtils.waitForClickable(CancelselectedItemButton,5);
             new Actions(Driver.get()).moveToElement(CancelselectedItemButton).doubleClick().build().perform();
-
         } else if (RequestCancelButton.size()>0) {
             RequestCancelButton.get(0).click();
             if(select.size()>0) {

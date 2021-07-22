@@ -8,7 +8,6 @@ import io.cucumber.java.en.When;
 
 public class ArtikelStepDefs {
 
-
     @When("The user search the product {string}")
     public void the_user_search_the_product(String item) {
         HomePage homepage = new HomePage();

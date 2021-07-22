@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         glue = "de/amazon/stepDefinitions",
         strict = true,
         dryRun = false,
-        tags = "@MiniSmokeTest"
+        tags = "@all"
 )
 class CukesRunner {
 }

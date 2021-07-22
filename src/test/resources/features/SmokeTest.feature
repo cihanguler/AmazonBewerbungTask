@@ -1,18 +1,15 @@
-
-Feature: Login, product searching, checkout, ordering, cancelling and logout process
-  As an existing Amazon user I want to;
-  login, search a product, buy product, cancel the order and logout successfully
+@all
+Feature: I want to verify login, product search, chart, checkout and logout processes
 
   Background:
     Given The user is on the homepage
-    Given The user logs in with valid credentials
-    Given The user select the language as "English - EN"
+    And The user select the language as "English - EN"
 
-  @MiniSmokeTest
-  Scenario: Verify login, product search, basket, checkout and logout
-    When The user navigate to basket page
+  @Smoke @ExistingUser
+  Scenario: As an existing Amazon user verify login, product search, basket, checkout and logout processes
+    When The user login with valid credentials
+    And The user navigate to basket page
     And The user check and deletes all products on the basket page
-    Then The user should be able to see on basket page "Your Amazon Basket is empty." message
     When The user select the search department as "Grocery"
     And The user search the product "Schogetten Alpenvollmilch-Haselnuss"
     And The user sort the products by "Price: Low to High"
@@ -34,9 +31,11 @@ Feature: Login, product searching, checkout, ordering, cancelling and logout pro
     When The user click on the SignOut button
     Then The user should be able to logout successfully
 
-
-  Scenario: Verify that the basket calculates the result correctly
-    And The user select the search department as "Electronics & Photo"
+  @Smoke @UnregisteredUser
+  Scenario: As an unregistered user verify product search, basket and checkout processes
+    And The user navigate to basket page
+    And The user check and deletes all products on the basket page
+    When The user select the search department as "Electronics & Photo"
     And The user search the product "Tripod"
     And The user sort the products by "Avg. Customer Review"
     And The user add the "average customer review" "Tripod" to the basket
@@ -50,3 +49,5 @@ Feature: Login, product searching, checkout, ordering, cancelling and logout pro
     And The user add the "most expensive" "Start with Why" to the basket
     And The user navigate to basket page
     Then The basket calculates the result correctly
+    When The user proceed to checkout
+    Then Amazon gets the user to the "Amazon Sign In" page
