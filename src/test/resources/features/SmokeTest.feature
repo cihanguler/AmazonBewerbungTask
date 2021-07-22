@@ -26,7 +26,7 @@ Feature: Login, product searching, checkout, ordering, cancelling and logout pro
     Then The message of tester is displayed
     And verify if the "Use gift card balance" is selected
     When The User click on the delivery options continue button
-    #And The User click on the buy now button
+    And The User click on the buy now button
     Then The user should be able to see "Order placed, thanks!" message
     When The user click on the orders button
     Then The user should be able to cancel the order
