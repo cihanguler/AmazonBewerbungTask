@@ -50,7 +50,6 @@ public class LoginPage extends BasePage {
         AnmeldenButton.click();
         userName.sendKeys(userNameStr);
         weiter.click();
-        //if (!userNameStr.contains("invalid")) {
         if(password.size()>0) {
             password.get(0).sendKeys(passwordStr);
             submit.click();

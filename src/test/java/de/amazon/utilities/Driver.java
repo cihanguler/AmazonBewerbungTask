@@ -105,10 +105,10 @@ public class Driver {
                     WebDriverManager.getInstance(SafariDriver.class).setup();
                     driverPool.set(new SafariDriver());
                     break;
-                case "SeleniumGrid_remote_chrome":
+                case "seleniumGrid_remote_chrome":
                     chromeOptions = new ChromeOptions();
                     chromeOptions.setCapability("platform", Platform.ANY);
-                    chromeOptions.setHeadless(true);
+                    chromeOptions.setHeadless(false);
 
                     try {
                         driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions)); //SeleniumGrid

@@ -5,7 +5,7 @@ Feature: I want to verify login, product search, chart, checkout and logout proc
     Given The user is on the homepage
     And The user select the language as "English - EN"
 
-  @Smoke @ExistingUser
+  @smoke @ExistingUser
   Scenario: As an existing Amazon user verify login, product search, basket, checkout and logout processes
     When The user login with valid credentials
     And The user navigate to basket page
@@ -31,7 +31,7 @@ Feature: I want to verify login, product search, chart, checkout and logout proc
     When The user click on the SignOut button
     Then The user should be able to logout successfully
 
-  @Smoke @UnregisteredUser
+  @smoke @UnregisteredUser
   Scenario: As an unregistered user verify product search, basket and checkout processes
     And The user navigate to basket page
     And The user check and deletes all products on the basket page

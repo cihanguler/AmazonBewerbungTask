@@ -1,4 +1,4 @@
-
+@all
 Feature: I want to verify if there are broken links on the Amazon homepage
 
   Background:
@@ -6,7 +6,7 @@ Feature: I want to verify if there are broken links on the Amazon homepage
     And The user select the language as "English - EN"
     And The user login with valid credentials
 
-  @brokenLinks @all
+  @brokenLinks
   Scenario: Verifying if all links on the HomePage valid or not
     Then All links on the HomePage must be valid
 

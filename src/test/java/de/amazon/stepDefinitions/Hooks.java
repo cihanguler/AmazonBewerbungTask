@@ -29,6 +29,7 @@ public class Hooks {
         logger.info("|          Test................: " + ConfigurationReader.get("testName"));
         logger.info("|          Tester..............: " + ConfigurationReader.get("tester"));
         logger.info("===============================================================\n");
+
     }
 
     @After

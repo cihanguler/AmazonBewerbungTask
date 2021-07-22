@@ -1,5 +1,6 @@
 package de.amazon.stepDefinitions;
 
+import de.amazon.pages.BasePage;
 import de.amazon.pages.HomePage;
 import de.amazon.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -22,7 +23,7 @@ public class HomePageStepDefs {
 
     @Then("All links on the HomePage must be valid")
     public void allLinksOnTheHomePageMustBeValid() {
-         new HomePage().BrokenLinks();
+        new HomePage().BrokenLinks();
     }
 
     @When("The user click on the SignOut button")

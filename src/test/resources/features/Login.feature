@@ -1,4 +1,4 @@
-
+@ll
 Feature: I want to verify if users can (not) login with (in)valid credentials
 
   Background:
@@ -25,3 +25,6 @@ Feature: I want to verify if users can (not) login with (in)valid credentials
       | bewerbungtask@gmail.com    | invalidPassword.123 |
       | invalidUserEmail@gmail.com | Bt.20212021         |
       | invalidUserEmail@gmail.com | invalidPassword.123 |
+      |                            | Bt.20212021         |
+      | bewerbungtask@gmail.com    |                     |
+      |                            |                     |

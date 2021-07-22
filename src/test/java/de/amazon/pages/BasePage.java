@@ -18,7 +18,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashSet;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -108,7 +108,7 @@ public abstract class BasePage {
         return userName.getText();
     }
 
-    public List<String> BrokenLinks (){
+    public void BrokenLinks (){
 
         String homePage = ConfigurationReader.get("url");
         String url = "";
@@ -119,14 +119,14 @@ public abstract class BasePage {
         List<String> allLinks= new ArrayList<>();
 
         while(it.hasNext()){
-            allLinks.add(url);
+
             url = it.next().getAttribute("href");
             if(url == null || url.isEmpty()){
-                logger.info(url +", URL is either not configured for anchor tag or it is empty");
+                //logger.info(url +", URL is either not configured for anchor tag or it is empty");
                 continue;
             }
             if(!url.startsWith(homePage)){
-                logger.info(url+", URL belongs to another domain, skipping it.");
+                //logger.info(url+", URL belongs to another domain, skipping it.");
                 continue;
             }
 
@@ -138,15 +138,15 @@ public abstract class BasePage {
 
                 if(respCode >= 400){
                     if (respCode==405){
-                        logger.info(url+" request rejected by server,"+ " response code is: "+ respCode);
+                        //logger.info(url+" request rejected by server,"+ " response code is: "+ respCode);
                     } else if (respCode==503) {
-                        logger.info(url+" service unavailable,"+ " response code is: "+ respCode);
-                    }else {
+                        //logger.info(url+" service unavailable,"+ " response code is: "+ respCode);
+                    }else if (respCode==404) {
                         logger.info(url+" is a broken link,"+ " response code is: "+ respCode);
                     }
                 }
                 else{
-                    logger.info(url+" is a valid link"+ " response code is: "+ respCode);
+                    //logger.info(url+" is a valid link"+ " response code is: "+ respCode);
                 }
 
             } catch (MalformedURLException e) {
@@ -155,8 +155,6 @@ public abstract class BasePage {
                 e.printStackTrace();
             }
         }
-        System.out.println(allLinks.toArray());
-    return allLinks;
 
     }
 
