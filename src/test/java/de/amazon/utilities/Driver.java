@@ -31,10 +31,10 @@ public class Driver {
     // driver class will provide separate webdriver object per thread
 
     public static final String browserStackUserName = "cihanguler1";
-    public static final String browserStackAutomateKey = "***";
+    public static final String browserStackAutomateKey = "2JGRZGzGLf9wfwCjT4MG";
     public static final String browserStackURL = "https://" + browserStackUserName + ":" + browserStackAutomateKey + "@hub-cloud.browserstack.com/wd/hub";
     public static final String sauceUserName = "oauth-bewerbungtask-84149";
-    public static final String sauceAccessKey = "***";
+    public static final String sauceAccessKey = "64d863dd-ecf9-4ea3-bcc5-8228e610b0da";
     public static final String sauceURL = "https://" + sauceUserName + ":" + sauceAccessKey + "@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
 
     private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>(); //in order to run parallel test with singleton web driver
