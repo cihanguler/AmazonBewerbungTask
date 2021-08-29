@@ -44,13 +44,6 @@ public class ProductPage extends BasePage {
     @FindBy(id = "mbc-buybutton-addtocart-1-announce")
     public List<WebElement> addToBasketMainButton3;
 
-    // because of time saving, I did not use below locators, but it works also like above locators...
-    /* @FindAll({
-            @FindBy(id = "add-to-cart-button"),
-            @FindBy(id = "add-to-cart-button-ubb"),
-            @FindBy(id = "mbc-buybutton-addtocart-1-announce")})
-    public List<WebElement> addToBasketMainButton;*/
-
     @FindBy(id = "buybox-see-all-buying-choices-announce")
     public List<WebElement> seeAllBuyingOptionsButton;
 
@@ -68,18 +61,6 @@ public class ProductPage extends BasePage {
      * click "add to basket" button, but on Amazon product page,as far as I saw, there are 4 options, because of that all of them is needed to try
      */
     public void addToBasket() {
-        // I wrote firstly a try catch block, but because of slow reaction, I used if-else condition instead of it
-        /*try {
-            clickWithJS(addToBasketMainButton);
-        } catch (NoSuchElementException outer) {
-            logger.info("Trying other buying options!");
-            try {
-                clickWithJS(seeAllBuyingOptionsButton);
-                clickWithJS(addToBasketButtons.get(0));
-            } catch (NoSuchElementException inner) {
-                logger.error("could not find any 'add to basket' button option");
-            }
-        }*/
 
         /**
          * Check first which "add to basket" button is available,

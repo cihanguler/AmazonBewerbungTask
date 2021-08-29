@@ -75,16 +75,12 @@ public class BasketPage extends BasePage {
     public double calculateTotalPriceOfProducts() {
 
         double total = 0.00;
-        //int i=0;
         if (productPrices.size()>0) {
             for (WebElement productPrice : productPrices) {
-                total += convert2TwoDecimalsDouble(productPrice.getText()); //* convert2TwoDecimalsDouble(quantity.get(i).getText());
-                //System.out.println("quantity.get(i).getText(): " +quantity.get(i).getText());
-                //i++;
+                total += convert2TwoDecimalsDouble(productPrice.getText());
             }
         }
-        //return convert2TwoDecimalsDouble(total);
-        return total;
+        return Math.round(total * 100.00) / 100.00;
     }
 
     /**
@@ -96,6 +92,7 @@ public class BasketPage extends BasePage {
     public double convert2TwoDecimalsDouble(String text) {
         double value= Double.parseDouble(text.substring(1));
         return Math.round(value * 100.00) / 100.00;
+
     }
 
     /**
@@ -165,13 +162,11 @@ public class BasketPage extends BasePage {
             BrowserUtils.waitForVisibility(BasketEmptyMessage.get(0),3);
             logger.info(BasketEmptyMessage.get(0).getText().trim(), str);
             Assert.assertEquals(str, BasketEmptyMessage.get(0).getText().trim().substring(0,10));
-            //Assert.assertTrue("Basket is empty assertion", BasketEmptyMessage.get(0).getText().trim().contains(str));
         } else if (BasketEmptyMessage2.size()>0) {
             BrowserUtils.waitForPageToLoad(3);
             BrowserUtils.waitForVisibility(BasketEmptyMessage2.get(0),3);
             logger.info(BasketEmptyMessage2.get(0).getText().trim(), str);
             Assert.assertEquals(str, BasketEmptyMessage2.get(0).getText().trim().substring(0,10));
-            //Assert.assertTrue("Basket is empty assertion", BasketEmptyMessage2.get(0).getText().trim().contains(str));
 
         }
 

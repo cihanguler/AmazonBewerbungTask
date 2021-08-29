@@ -1,9 +1,30 @@
 @all
-Feature: I want to verify login, product search, chart, checkout and logout processes
+Feature: Verifying main processes
 
   Background:
     Given The user is on the homepage
     And The user select the language as "English - EN"
+
+  @smoke @UnregisteredUser
+  Scenario: As an unregistered user verify product search, basket and checkout processes
+    And The user navigate to basket page
+    And The user check and deletes all products on the basket page
+    When The user select the search department as "Electronics & Photo"
+    And The user search the product "Tripod"
+    And The user sort the products by "Avg. Customer Review"
+    And The user add the "average customer review" "Tripod" to the basket
+    And The user select the search department as "Health & Personal Care"
+    And The user search the product "Aspirin"
+    And The user sort the products by "Newest Arrivals"
+    And The user add the "newest arrivals" "Aspirin" to the basket
+    And The user select the search department as "Books"
+    And The user search the product "Simon Sinek Start with Why English"
+    And The user sort the products by "Price: High to Low"
+    And The user add the "most expensive" "Start with Why" to the basket
+    And The user navigate to basket page
+    Then The basket calculates the result correctly
+    When The user proceed to checkout
+    Then Amazon gets the user to the "Amazon Sign In" page
 
   @smoke @ExistingUser
   Scenario: As an existing Amazon user verify login, product search, basket, checkout and logout processes
@@ -31,23 +52,4 @@ Feature: I want to verify login, product search, chart, checkout and logout proc
     When The user click on the SignOut button
     Then The user should be able to logout successfully
 
-  @smoke @UnregisteredUser
-  Scenario: As an unregistered user verify product search, basket and checkout processes
-    And The user navigate to basket page
-    And The user check and deletes all products on the basket page
-    When The user select the search department as "Electronics & Photo"
-    And The user search the product "Tripod"
-    And The user sort the products by "Avg. Customer Review"
-    And The user add the "average customer review" "Tripod" to the basket
-    And The user select the search department as "Health & Personal Care"
-    And The user search the product "Aspirin"
-    And The user sort the products by "Newest Arrivals"
-    And The user add the "newest arrivals" "Aspirin" to the basket
-    And The user select the search department as "Books"
-    And The user search the product "Simon Sinek Start with Why English"
-    And The user sort the products by "Price: High to Low"
-    And The user add the "most expensive" "Start with Why" to the basket
-    And The user navigate to basket page
-    Then The basket calculates the result correctly
-    When The user proceed to checkout
-    Then Amazon gets the user to the "Amazon Sign In" page
+

@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        monochrome = false,
         plugin = {"json:target/cucumber.json",
                 "html:target/default-html-reports",
                 "rerun:target/rerun.txt"
@@ -15,7 +14,7 @@ import org.junit.runner.RunWith;
         glue = "de/amazon/stepDefinitions",
         strict = true,
         dryRun = false,
-        tags = "@all"
+        tags = "@ExistingUser"
 )
 class CukesRunner {
 }

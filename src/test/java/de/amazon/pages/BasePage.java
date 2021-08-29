@@ -66,8 +66,6 @@ public abstract class BasePage {
      */
     public void changeLanguage(String language) {
         BrowserUtils.hover(languageBar);
-        //Driver.get().findElement(By.cssSelector("#nav-flyout-icp a[href^=\"#switch-lang\"]"))
-                //.findElement(By.xpath("//span[text()=\"" + language + "\"]")).click();
         Driver.get().findElement(By.xpath("//div[@id='nav-flyout-icp']//span[.='"+language+"']")).click();
 
     }
@@ -159,7 +157,6 @@ public abstract class BasePage {
     }
 
     public void PageTitleAssertion(String expectedTitle) {
-        //ant time we are verifying page name, or page subtitle, loader mask appears
         BrowserUtils.waitForPageToLoad(5);
         logger.info("expectedTitle : " + expectedTitle);
         String actualTitle= Driver.get().getTitle().trim();

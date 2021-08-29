@@ -31,22 +31,17 @@ public class Driver {
     // driver class will provide separate webdriver object per thread
 
     public static final String browserStackUserName = "cihanguler1";
-    public static final String browserStackAutomateKey = "2JGRZGzGLf9wfwCjT4MG";
+    public static final String browserStackAutomateKey = "***";
     public static final String browserStackURL = "https://" + browserStackUserName + ":" + browserStackAutomateKey + "@hub-cloud.browserstack.com/wd/hub";
     public static final String sauceUserName = "oauth-bewerbungtask-84149";
-    public static final String sauceAccessKey = "64d863dd-ecf9-4ea3-bcc5-8228e610b0da";
+    public static final String sauceAccessKey = "***";
     public static final String sauceURL = "https://" + sauceUserName + ":" + sauceAccessKey + "@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
 
     private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>(); //in order to run parallel test with singleton web driver
 
     public static WebDriver get() {
-        //if this thread doesn't have driver - create it and add to pool
+
         if (driverPool.get() == null) {
-//           if we pass the driver from terminal then use that one
-//           if we do not pass the driver from terminal then use the one properties file
-//           Alt satır Jamal'in driverı. Bunun yerine AutoTrader Mehmed abinikini kullanıyorum. O yüzden kapattım.
-//           String browser = System.getProperty("browser") != null ? browser = System.getProperty("browser") : ConfigurationReader.get("browser");
-//           this line will tell which browser should open based on the value from properties file
 
             String browserParamFromEnv = System.getProperty("browser");
             String browser = browserParamFromEnv == null ? ConfigurationReader.get("browser") : browserParamFromEnv;
@@ -146,7 +141,6 @@ public class Driver {
                     caps.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.ANDROID);
                     caps.setCapability(MobileCapabilityType.VERSION,"10.0+");
                     caps.setCapability(MobileCapabilityType.DEVICE_NAME,"Pixel 2 API 30");
-                    //we are telling we want to open mobile chrome browser on the phone
                     caps.setCapability(MobileCapabilityType.BROWSER_NAME, BrowserType.CHROME);
                     caps.setCapability(MobileCapabilityType.AUTOMATION_NAME,"UiAutomator2");
                     try {

@@ -1,5 +1,5 @@
 @all
-Feature: I want to verify if there are broken links on the Amazon homepage
+Feature: Verifying broken links on the Amazon homepage
 
   Background:
     Given The user is on the homepage
