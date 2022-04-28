@@ -106,7 +106,7 @@ public class Driver {
                     chromeOptions.setHeadless(false);
 
                     try {
-                        driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions)); //SeleniumGrid
+                        driverPool.set(new RemoteWebDriver(new URL("http://34.229.165.189:4444/wd/hub"), chromeOptions)); //SeleniumGrid
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }
